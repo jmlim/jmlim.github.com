@@ -1,40 +1,63 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+# Site Info
+title: 기억하기 위한 개발노트
+tagline: '기억하기 위한 개발노트'
+description: 'jekyll lanyon 테마를 사용한 개발 블로그입니다. Made by <a href="http://jmlim.github.io" target="_blank">@jmlim</a>.'
+baseurl: ""
+url: http://jmlim.github.io
+#logo: '/public/logo.png'
 
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: 기억하기 위한 Dev Note
-email: hackerljm@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  개발 관련 정보들을 요약하는 페이지입니다.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  jmlim
-
-# Build settings
+# Site configurations
+gems:
+  - jekyll-paginate
 markdown: kramdown
-theme: minima
-plugins:
-  - jekyll-feed
+kramdown:
+  input: GFM
+excerpt_separator: "<!-- more -->"
+sass:
+  style: compressed
+  sass_dir: _scss    
+paginate: 5
+paginate_path: '/blog/page:num'
+permalink: pretty
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+version: 1.0.0
+
+# About/contact
+author:
+  name: Lim Jeong Muk
+  description: 기억하기 위해 개발 관련 정보들을 요약하는 페이지입니다.
+  gravatar: 4446e606a5aac8b2c729cffc5eec79ba # hackerljm@gmail.com
+  contact:
+    #linkedin:  https://www.linkedin.com/in/lizhihao
+    github:    https://github.com/jmlim
+    # facebook:  <hide>
+    #twitter:   https://twitter.com/Li_Zhihao
+    #weibo:     http://weibo.com/41173780
+    #email:     http://www.google.com/recaptcha/mailhide/d?k=01I3lZFiZYng9N3QxYEtsDaQ==&c=31wAnZkuKqcG0ATAqJN8Z3ln5kkYLA9TwkGc-IbygpM=
+
+# Navigation (2nd level links supported)
+nav:
+  Home:           
+    - '/'
+  Blog:           
+    - '/blog/'
+    - { Categories: '/blog/categories/' }
+    - { Tags: '/blog/tags/' }
+  About:          
+    - '/about/'
+  Github Project: 
+    - 'http://jmlim.github.io/'
+
+# Where are tags and categories displayed
+tag_page: '/blog/tags/'
+category_page: '/blog/categories/'
+
+hero:
+  image: /public/img/3632773.png
+  caption: https://github.com/jmlim
+
+# Puglins
+mathjax: true # whether support mathjax
+google_analytics_token: 'UA-00000000-1' # leave blank if you don't want google analytics
+disqus_short_name: 'your_short_name' # leave blank if you don't want disqus
+
