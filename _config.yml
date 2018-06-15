@@ -43,10 +43,10 @@ nav:
     - '/blog/'
     - { Categories: '/blog/categories/' }
     - { Tags: '/blog/tags/' }
-  About:          
-    - '/about/'
-  Github Project: 
-    - 'http://jmlim.github.io/'
+  #About:          
+  #  - '/about/'
+  #Github Project: 
+  #  - 'http://jmlim.github.io/'
 
 # Where are tags and categories displayed
 tag_page: '/blog/tags/'
