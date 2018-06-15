@@ -3,6 +3,7 @@ layout: post
 title:  "나눔고딕 웹 폰트 적용하기."
 date:   2018-06-15 16:43:23 +0900
 categories: etc
+comments: true
 tags: [font, Nanum Gothic]
 ---
 
