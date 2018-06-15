@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "github jekyll 을 통한 첫 포스팅"
+title:  "github page 에 jekyll 및 테마 적용하기."
 date:   2018-06-15 13:15:23 +0900
 categories: etc
 tags: [blog, jekyll, github.io, condinfox Lanuyon]
