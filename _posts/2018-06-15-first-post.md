@@ -7,7 +7,7 @@ tags: [blog, jekyll, github.io, condinfox Lanuyon]
 ---
 
 ---
-### github page 에 jekyll을 통한 첫 포스팅.
+### github page 에 jekyll 및 테마 적용하기.
 
 이전부터 github 페이지를 개발 블로그로 사용하고 싶었는데 한참 미루다가 이제서야 하게 되었다.<br> (이직하면서 약간의 시간이 생겼다.)
 
@@ -22,7 +22,7 @@ tags: [blog, jekyll, github.io, condinfox Lanuyon]
 2. <https://gist.github.com/ihoneymon/652be052a0727ad59601>
 
 앞으로 포스팅을 꾸준히 하는것이 목표이다.<br> 
-생각보다 github page 구축하는데 오래 걸려서 포스팅을 꾸준히 하지 않으면 시간이 아까울 것 같다.
+생각보다 github page 구축하는데 오래 걸려서 포스팅을 꾸준히 하지 않으면 구축했던 시간이 아까울 것 같다.
 
 __일단 첫번째 목표 완료 ㅎㅎ__
 
