@@ -1,21 +1,7 @@
 # Ignore docs files
 _gh_pages
+_site
 .ruby-version
-blog
-etc
-ide
-jekyll
-404.html
-atom.xml
-LICENSE.md
-index.html
-README.md
-css
-img
-apple-touch-icon-precomposed.png
-favicon.ico
-favicon.png
-logo.png
 
 # Numerous always-ignore extensions
 *.diff
