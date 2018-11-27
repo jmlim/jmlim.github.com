@@ -30,8 +30,10 @@ public class DemoApplication {
    }
 }
 ```
+
 구현하기
 --
+
 @Scheduled 어노테이션을 메소드에 선언하며 실행이 가능하며 실행주기는 cron, fixedDelay, fixedRate 라는 세개의 속성으로 지정할 수 있다.
 
 cron 으로 실행주기 설정하기. 
