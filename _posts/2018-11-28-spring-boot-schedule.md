@@ -24,7 +24,6 @@ Schedule 기능 켜기
 ```java
 @SpringBootApplication
 @EnableScheduling
-
 public class DemoApplication {
    public static void main(String[] args) {
       SpringApplication.run(DemoApplication.class, args);
