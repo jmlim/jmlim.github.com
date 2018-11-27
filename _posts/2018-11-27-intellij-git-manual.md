@@ -2,7 +2,7 @@
 layout: post
 title:  "Intellij 에서 Git 사용하기"
 date:   2018-11-27 23:16:00 +0900
-categories: Spring
+categories: Intellij
 comments: true
 tags: [Intellij, Git]
 ---

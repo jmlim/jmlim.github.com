@@ -2,7 +2,7 @@
 layout: post
 title:  "오라클 테이블 스페이스 용량 조회"
 date:   2018-11-26 15:20:00 +0900
-categories: java
+categories: Oracle
 comments: true
 tags: [Oracle, DB]
 ---

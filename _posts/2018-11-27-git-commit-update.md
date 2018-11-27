@@ -2,9 +2,9 @@
 layout: post
 title:  "[intellij-idea] IntelliJ를 사용하여 git commit 메시지 수정"
 date:   2018-11-27 17:22:00 +0900
-categories: git
+categories: Intellij
 comments: true
-tags: [Git, intellij]
+tags: [Git, Intellij]
 ---
 
 ---

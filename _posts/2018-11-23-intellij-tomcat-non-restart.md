@@ -2,9 +2,9 @@
 layout: post
 title:  "Intellj 에서 jsp 수정 후 tomcat 재구동 없이 배포"
 date:   2018-11-23 15:11:00 +0900
-categories: etc
+categories: Intellij
 comments: true
-tags: [intellij, IDE, Java]
+tags: [Intellij, IDE, Java]
 ---
 
 ---

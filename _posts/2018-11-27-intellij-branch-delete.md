@@ -2,9 +2,9 @@
 layout: post
 title:  "Intellij에서 git branch 삭제하기"
 date:   2018-11-27 18:32:00 +0900
-categories: etc
+categories: Intellij
 comments: true
-tags: [intellij, Git]
+tags: [Intellij, Git]
 ---
 
 ---

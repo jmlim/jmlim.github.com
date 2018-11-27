@@ -2,7 +2,7 @@
 layout: post
 title:  "자바(JAVA) 형 변환(String과 Date)"
 date:   2018-11-26 15:20:00 +0900
-categories: java
+categories: Java
 comments: true
 tags: [Java, Date]
 ---

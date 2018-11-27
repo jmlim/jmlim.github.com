@@ -2,7 +2,7 @@
 layout: post
 title:  "Javascript timestamp 컨버터 (로컬시간 기준)"
 date:   2018-11-27 18:08:00 +0900
-categories: javascript
+categories: Javascript
 comments: true
 tags: [Javascript, JQuery]
 ---

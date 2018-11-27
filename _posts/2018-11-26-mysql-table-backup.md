@@ -2,7 +2,7 @@
 layout: post
 title:  "[MySQL] 특정 테이블만 백업하기"
 date:   2018-11-26 15:09:00 +0900
-categories: mysql
+categories: Mysql
 comments: true
 tags: [Mysql, DB]
 ---

@@ -2,9 +2,9 @@
 layout: post
 title:  "인텔리제이 참고자료(링크)"
 date:   2018-06-20 08:43:23 +0900
-categories: etc
+categories: Intellij
 comments: true
-tags: [intellij, IDE, Java]
+tags: [Intellij, IDE, Java]
 ---
 
 ---
