@@ -71,8 +71,9 @@ public class MessageSender {
   }
 }
 ```
-호출하기.
-- 아래와 같이 호출하면 된다.
+
+호출은 아래와 같이 하면 된다.
+
 ```java
  
  @Autowired
