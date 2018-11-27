@@ -2,7 +2,7 @@
 layout: post
 title:  "스프링에서 @Async로 비동기처리하기"
 date:   2018-11-27 18:00:00 +0900
-categories: git
+categories: Spring
 comments: true
 tags: [Spring, Java]
 ---
