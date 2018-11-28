@@ -169,13 +169,13 @@ thymeleaf 페이지에서 사용하기.
 ```
 
 default url 조회
-<img src="{{ site.baseurl }}/public/post/internationalization/default.png"/>
+<img src="{{ site.baseurl }}/public/post/international/default.png"/>
 
 영문조회 시 (lang=en)
-<img src="{{ site.baseurl }}/public/post/internationalization/english.png"/>
+<img src="{{ site.baseurl }}/public/post/international/english.png"/>
 
 일문 조회시 (lang=jp)
-<img src="{{ site.baseurl }}/public/post/internationalization/japan.png"/>
+<img src="{{ site.baseurl }}/public/post/international/japan.png"/>
 
 
 
