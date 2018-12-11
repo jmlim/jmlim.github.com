@@ -34,6 +34,8 @@ RestController를 사용한 클래스 자체에 적용할 수 도 있고, 특정
 
 예제코드 1) 
  - WebMvcConfigurer를 통해 적용하는 방식.
+
+
 ```java
 
 package io.jmlim.corssample.corssample;
@@ -58,6 +60,7 @@ public class WebConfig implements WebMvcConfigurer {
 
 예제코드 2) 
  - @CrossOrigin 어노테이션을 통해 적용하는 방식.
+
 
 ```java
 package io.jmlim.corssample.corssample;
@@ -97,6 +100,7 @@ public class CorssampleApplication {
 예제코드 호출하기
  > 만약 이 코드가 실행되는 웹서버의 도메인이 http://localhost:18080과 http://localhost:8080이 아닐경우 fail이 발생한다.
  
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
