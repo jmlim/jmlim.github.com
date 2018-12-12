@@ -15,8 +15,11 @@
           <h3 class="masthead-title">
             <a href="{{ site.baseurl }}/" title="Home" title="{{ site.title }}">
               <img class="masthead-logo" src="{{ site.baseurl }}{{ site.logo }}"/>
+              <!-- 로고 사용 시 텍스트 다시 small 태그 안에 넣어야함. (원래 테마엔 small tag 안에 있었음)-->
+              <a href="{{ site.baseurl }}/" title="Home" title="{{ site.title }}">{{ site.tagline }}</a>
             </a>
-            <small> <a href="{{ site.baseurl }}/" title="Home" title="{{ site.title }}">{{ site.tagline }}</a></small>
+            <!-- 로고 사용 시 텍스트 다시 small 태그 안에 넣어야함. -->
+            <small> </small>
           </h3>
         </div>
       </div>
