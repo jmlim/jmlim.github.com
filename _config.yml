@@ -15,7 +15,7 @@ kramdown:
 excerpt_separator: "<!-- more -->"
 sass:
   style: compressed
-  sass_dir: _scss    
+  sass_dir: _scss
 paginate: 5
 paginate_path: '/blog/page:num'
 permalink: pretty
@@ -25,7 +25,7 @@ version: 1.0.0
 # About/contact
 author:
   name: Lim Jeong Muk
-  description: 기억하기 위해 개발 관련 정보들을 요약하는 페이지입니다.
+  description: 잘못된 내용이 있으면 댓글 남겨주세요.
   gravatar: 4446e606a5aac8b2c729cffc5eec79ba # hackerljm@gmail.com
   contact:
     #linkedin:  https://www.linkedin.com/in/lizhihao
@@ -37,15 +37,15 @@ author:
 
 # Navigation (2nd level links supported)
 nav:
-  Home:           
+  Home:
     - '/'
-  Blog:           
+  Blog:
     - '/blog/'
     - { Categories: '/blog/categories/' }
     - { Tags: '/blog/tags/' }
-  #About:          
+  #About:
   #  - '/about/'
-  #Github Project: 
+  #Github Project:
   #  - 'http://jmlim.github.io/'
 
 # Where are tags and categories displayed
@@ -53,10 +53,10 @@ tag_page: '/blog/tags/'
 category_page: '/blog/categories/'
 
 hero:
-  image: /public/img/3632773.png
-  caption: https://github.com/jmlim
+  image: /public/img/imageofhanaumabay.jpg
+  caption: Image of hanaumabay
 
-site: 
+site:
     disqus_short_name: jmlim
     url: http://jmlim.github.io
 # Puglins

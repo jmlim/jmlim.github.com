@@ -12,7 +12,7 @@ tags: [Java]
 
 
 ```java
-InputStream in = new URL(파일이 있는 URL 링크).openStream(); //ex: http://jmlim.github.io/public/img/3632773.png
+InputStream in = new URL(파일이 있는 URL 링크).openStream(); //ex: http://jmlim.github.io/public/img/imageofhanaumabay.jpg
 Files.copy(in, Paths.get(파일을 저장할 링크)); //ex : C:/File/Images/파일명.jpg
 ```
 
