@@ -35,7 +35,7 @@ JAVA8 에서 추가된 API
 사용해보기
 --
 
-예제코드 1) 
+#### 예제코드 1) 
  - 컴퓨터의 현재 날짜 출력.
 
 ```java
@@ -49,7 +49,7 @@ public class WorkingWithLocalDate {
 }
 ```
 
-예제코드 2) 
+#### 예제코드 2) 
  - 특정 일, 월 및 연도 지정하여 반환하고 싶을 때 LocalDate.of 메서드를 사용하거나 LocalDate.parse 메서드를 사용. 
 
 ```java
@@ -75,7 +75,7 @@ public class WorkingWithLocalDate {
 > 2017-12-12<br>
 2018-12-05
 
-예제코드 3) 
+#### 예제코드 3) 
  - LocalDate parse 사용시에 포멧 형식 변경하여 사용할 경우.
 
 
@@ -110,7 +110,7 @@ Before : 2018-12-13T09:49:53.383<br>
 After : 2018-12-13 09:49:53
 
 
-예제코드 4) 
+#### 예제코드 4) 
  - 날짜 시간 증감시키기 예제
 
 ```java
@@ -152,7 +152,7 @@ public class WorkingWithLocalDate2 {
 2018-12-11T23:59
 
 
-예제코드 5) 
+#### 예제코드 5) 
  - 특정 지역의 시간에 의존하지 않고 날짜와 시간을 표현하고 싶다면 ZonedDateTime 클래스를 사용하면 된다.
 
 ```java
@@ -183,7 +183,7 @@ public class WorkingWithLocalDate {
 >ZonedDateTime : 2018-12-12T09:00+09:00[Asia/Seoul]<br/>
 Instant : 2018-12-12T00:00:00Z<br/>
 
-예제코드 6) 
+#### 예제코드 6) 
  - Period를 통해 두 "날짜" 사이의 간격을 알 수 있다.
  
 ```java
