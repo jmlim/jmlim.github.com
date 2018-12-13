@@ -131,7 +131,7 @@ public class CorssampleApplication {
 </html>
 ```
 
-출처: 
+참고: 
  - http://zamezzz.tistory.com/137 [배워가는블로거]
 
 [jekyll-docs]: https://jekyllrb.com/docs/home

@@ -17,7 +17,7 @@ tags: [Spring, Java]
 2. 로그 처리
 3. 푸시 처리
 
-###Async 기능 켜기 Enable Async Support
+### Async 기능 켜기 Enable Async Support
 자바 설정(Java configuration) 관련 클래스에 @EnableAsync 를 추가해주기만 하면 된다.
 
 ```java
@@ -25,7 +25,7 @@ tags: [Spring, Java]
 @EnableAsync
 public class SpringAsyncConfig { ... }
 ```
-###Config
+### Config
 
 @EnableAsync만 추가하면 기본적인 설정은 끝이다.<br/>
 하지만, 기본값인 SimpleAsyncTaskExecutor 클래스는 매번 Thread를 만들어내는 객체이기 때문에 Thread Pool이 아니다. <br/>
@@ -88,7 +88,7 @@ public class MessageSender {
   }
 ```
 
-출처: 
+참고: 
  - https://heowc.github.io/2018/02/10/spring-boot-async/
 
 

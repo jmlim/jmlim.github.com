@@ -207,7 +207,7 @@ public class WorkingWithLocalDate {
 출력: 
  > 8 년1 월24 일
 
-출처: 
+참고: 
  - http://starplatina.tistory.com/entry/Java-8-%EC%83%88%EB%A1%9C%EC%9A%B4-Date-Time-API
  - http://www.mkyong.com/tutorials/java-date-time-tutorials/
 

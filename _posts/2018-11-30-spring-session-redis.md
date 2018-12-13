@@ -74,7 +74,7 @@ public class RedisSessionConfig extends AbstractHttpSessionApplicationInitialize
 레디스에서 세션 저장여부 확인.
 <img src="{{ site.baseurl }}/public/post/spring-session/spring-session-redis.png"/>
 
-출처: 
+참고: 
  - http://wiki.sys4u.co.kr/pages/viewpage.action?pageId=8552454
  - https://webisfree.com/2018-01-25/%EB%A6%AC%EB%88%85%EC%8A%A4%EC%97%90-redis-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0-install
 

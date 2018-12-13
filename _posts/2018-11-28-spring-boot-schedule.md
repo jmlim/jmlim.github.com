@@ -89,7 +89,7 @@ public void scheduleFixedRateTask() {
 > 위 차이를 쉽게 얘기하면 fixedDelay 는 이전 수행이 종료된 시점부터 delay 후에 재 호출되고 fixedRate 는 이전 수행이 시작된 시점부터 delay 후에 재 호출된다. 그러므로 fixedRate 로 지정 시 동시에 여러개가 돌 가능성이 존재한다.
 
 
-출처: 
+참고: 
  - https://blog.outsider.ne.kr/1066
  - https://jdm.kr/blog/2
 

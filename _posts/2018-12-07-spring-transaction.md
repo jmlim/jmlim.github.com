@@ -127,7 +127,7 @@ propagation에 지정할 수 있는 값은 다양하다. 그것들을 간단히 
 그 이후에 사용 가능한 커넥션의 갯수가 줄어든다. 그러다 어느 순간 다른 트랜잭션이 수행될 때, 커넥션이 부족하여 커넥션을 받기 위해 기다리는 상황이 발생할 수 있다.
 
 
-출처: 
+참고: 
 - http://virusworld.tistory.com/120
 - https://preamtree.tistory.com/97
 - http://victorydntmd.tistory.com/129 [victolee]
