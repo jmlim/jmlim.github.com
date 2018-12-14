@@ -9,8 +9,6 @@ tags: [Spring, Java]
 
 ---
 
-Spring boot 환경에서 Amazon s3에 이미지파일 업로드하기.
---
 
 amazon s3 인증 받기 및 설정 관련 내용은 생략하였다.
 

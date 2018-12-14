@@ -8,7 +8,6 @@ tags: [Intellij, Git]
 ---
 
 ---
-### Intellij에서 git branch 삭제하기
 
 명령어로 삭제하는 방법 
 ---

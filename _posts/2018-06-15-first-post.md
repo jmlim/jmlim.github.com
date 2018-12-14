@@ -7,7 +7,6 @@ tags: [blog, jekyll, github.io, condinfox Lanuyon]
 ---
 
 ---
-### github page 에 jekyll 및 테마 적용하기.
 
 이전부터 github 페이지를 개발 블로그로 사용하고 싶었는데 한참 미루다가 이제서야 하게 되었다.<br> (이직하면서 약간의 시간이 생겼다.)
 

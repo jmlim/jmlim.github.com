@@ -9,8 +9,6 @@ tags: [Java, Deep Copy]
 
 ---
 
-# 객체가 들어있는 컬렉션(ArrayList or HashSet 등) 목록 깊은 복사(Deep copy) 하기.
-
 Java의 Collection은 기본적으로 얕은 복사(shallow copy)는 제공하나 깊은 복사기능은 제공하지 않는다.
 즉, 원본 목록과 복제된 목록에 저장된 객체가 동일하고 그렇다는것은 Java 힙 공간에서 동일한 메모리 위치를 가리켜 문제가 될 수 있다.
 

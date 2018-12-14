@@ -9,8 +9,6 @@ tags: [Java, Java8, DateTime]
 
 ---
 
-# Java8 의 날짜 API 사용하기.
-
 Java 1.8 이전 버전의 SDK에서 날짜와 시간을 다루는 java.util.Date 클래스와 java.util.Calendar 클래스는 
 사용하기가 불편하고 직관적이지 않으며 또한 java.util.Date와 SimpleDateFormatter는 Thread-Safe 하지 않아서 잠재적인 동시성 문제를 가지고 있다.
 많이 늦었지만 JDK 8에서는 개선된 날짜와 시간 API가 제공된다.

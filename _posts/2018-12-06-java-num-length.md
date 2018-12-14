@@ -9,8 +9,6 @@ tags: [Java]
 
 ---
 
-숫자형의 길이 구하기.
---
 
 ```java
 String a = "abced";

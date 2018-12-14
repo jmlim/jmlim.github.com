@@ -8,7 +8,6 @@ tags: [Oracle, DB]
 ---
 
 ---
-### 오라클 테이블 스페이스 용량 조회
 
 ```sql
 select   substr(a.tablespace_name,1,30) tablespace,

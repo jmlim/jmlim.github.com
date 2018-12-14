@@ -8,7 +8,6 @@ tags: [Intellij, Git]
 ---
 
 ---
-### Intellij 에서 Git 사용하기.
 
 
 벡엔드 개발을 할 때 많은 툴을 사용합니다. 

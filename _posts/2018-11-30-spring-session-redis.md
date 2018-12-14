@@ -9,8 +9,7 @@ tags: [Spring, Java, Redis]
 
 ---
 
-Spring boot 환경에서 Spring Session 을 통해 WAS가 아닌 다른 저장소에 저장하기.
---
+
 WAS의 세션을 이용했을 때, 서버가 한 대일 때에는 WAS의 세션을 사용하는데에 문제가 없었을 것이다.
 사용자가 증가함에 따라 서버에 과부하가 걸려 WAS를 증설하기 시작할 경우 HttpSession을 사용하면 세션이 두군데서 관리된다.
 

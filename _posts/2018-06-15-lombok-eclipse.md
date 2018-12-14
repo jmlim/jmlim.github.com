@@ -8,7 +8,6 @@ tags: [Eclipse, Lombok]
 ---
 
 ---
-### eclipse(STS)에 lombok(롬복) 적용
 
 먼저 lombok 이란?
 

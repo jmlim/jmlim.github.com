@@ -8,7 +8,6 @@ tags: [Intellij, Tomcat]
 ---
 
 ---
-### IntelliJ에서 프로젝트 Tomcat 설정하여 올리기.
 
 1. tomcat 에서 돌아갈 프로젝트를 내려받거나 셋팅한다.
   ```

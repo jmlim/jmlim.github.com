@@ -8,7 +8,6 @@ tags: [Javascript, JQuery]
 ---
 
 ---
-### JQuery timestamp 컨버터 (로컬시간 기준)
 
 개인적으로 자주 쓸 것 같아서 보관용으로 포스팅한다.
 

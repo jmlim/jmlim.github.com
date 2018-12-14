@@ -9,8 +9,6 @@ tags: [Intellij, Git]
 
 ---
 
-# Intellij 에서 git 프로젝트 생성 후 remote 저장소(github)에 push 하기.
-
 
 ## 1. Git 실행설정
 

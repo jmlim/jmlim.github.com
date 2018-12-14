@@ -8,7 +8,6 @@ tags: [Intellij, IDE, Java]
 ---
 
 ---
-### Intellj 에서 jsp 수정 후 tomcat 재구동 없이 배포
 
 jsp를 수정하게되면 tomcat을 재구동하지 않고서는 웹에 반영이 되지 않는 증상이 발생하여 설정을 수정하였다.
 

@@ -9,8 +9,6 @@ tags: [Spring, CORS, Cross Domain]
 
 ---
 
-#스프링 부트에서 크로스도메인 이슈 처리하기. (@CrossOrigin 어노테이션을 사용)
-
 크로스도메인 이슈란?
 --
 Ajax 등을 통해 다른 도메인의 서버에 url(data)를 호출할 경우 XMLHttpRequest는 보안상의 이유로 자신과 동일한 도메인으로만 HTTP요청을 보내도록 제한하고 있어 에러가 발생한다.<br/>

@@ -8,7 +8,6 @@ tags: [Spring, Java]
 ---
 
 ---
-### 스프링부트에서 다국어 기능 사용하기.
 
 기존 Spring + java web application 다국어 지원 설정을 하기 위해선 여러가지 사항들을 고려 해야 한다.
 spring framework 및 설정을 통해서 다국어를 사용하는 방법에 여러가지가 있다.

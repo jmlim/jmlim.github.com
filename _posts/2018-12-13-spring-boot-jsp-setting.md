@@ -9,8 +9,6 @@ tags: [Spring, JSP]
 
 ---
 
-# 스프링 부트에서 JSP view 설정하기.
-
 기본적으로 spring-boot-starter-web 에 포함된 tomcat은 JSP를 포함하지 않는다.<br/>
 하지만 간단한 설정만으로도 JSP view를 사용 가능하다.<br>
 

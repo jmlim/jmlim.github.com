@@ -9,7 +9,6 @@ tags: [Javascript, Hexcode, Regex, 정규표현식]
 
 ---
 
-#Hex Color 코드 관련 자바스크립트 정규식 및 함수 정리
 
 먼저 Hex코드란?  <br/>
 --

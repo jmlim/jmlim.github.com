@@ -8,7 +8,6 @@ tags: [Git, Intellij]
 ---
 
 ---
-### IntelliJ를 사용하여 git commit 메시지 수정
 
 로컬에만 커밋 되어있고 push 처리가 되지 않았을 경우에 할 수 있는 2가지 방법.
 
