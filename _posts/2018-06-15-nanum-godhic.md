@@ -14,11 +14,11 @@ github 페이지 적용 후 한글폰트가 맘에 들지 않아 나눔글꼴을
 
 [구글에서 제공하는 웹 폰트](https://fonts.google.com/)
 1. 나눔고딕 항목 선택
-<img src="{{ site.baseurl }}/public/post/fonts/font1.png" width="800px" height="400px"/>
+<img src="{{ site.baseurl }}/public/post/fonts/font1.png"/>
 2. Select this font 선택
-<img src="{{ site.baseurl }}/public/post/fonts/font2.png" width="800px" height="400px"/>
+<img src="{{ site.baseurl }}/public/post/fonts/font2.png"/>
 3. 선택 후 보여지는 링크로 페이지에 적용
-<img src="{{ site.baseurl }}/public/post/fonts/font3.png" width="800px" height="400px"/>
+<img src="{{ site.baseurl }}/public/post/fonts/font3.png"/>
 
 
 본인은 표준 import 방식으로 적용했다.<br>
