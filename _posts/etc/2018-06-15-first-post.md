@@ -21,7 +21,6 @@ tags: [blog, jekyll, github.io, condinfox Lanuyon]
 2. <https://gist.github.com/ihoneymon/652be052a0727ad59601>
 
 앞으로 포스팅을 꾸준히 하는것이 목표이다.<br> 
-생각보다 github page 구축하는데 오래 걸려서 포스팅을 꾸준히 하지 않으면 구축했던 시간이 아까울 것 같다.
 
 __일단 첫번째 목표 완료 ㅎㅎ__
 
