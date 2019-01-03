@@ -87,10 +87,54 @@ public void scheduleFixedRateTask() {
 
 > 위 차이를 쉽게 얘기하면 fixedDelay 는 이전 수행이 종료된 시점부터 delay 후에 재 호출되고 fixedRate 는 이전 수행이 시작된 시점부터 delay 후에 재 호출된다. 그러므로 fixedRate 로 지정 시 동시에 여러개가 돌 가능성이 존재한다.
 
+Thread pool 설정
+--
+기본적으로 모든 @Scheduled 작업은 Spring에 의해 생성 된 한개의 스레드 풀에서 실행된다.
+그렇기 때문에 하나의 Scheduled이 돌고 있다면 그것이 다 끝나야 다음 Scheduled이 실행되는 문제가 있다.
+
+실제로 로그를 보면 같은 쓰레드로 확인 될 것이다.
+```java
+logger.info("Current Thread : {}", Thread.currentThread().getName());
+```
+
+결과
+```java
+Current Thread : pool-1-thread-1
+```
+스프링 부트에서 설정을 통해 Schedule에 대한 쓰래드 풀을 생성하고 그 쓰레드 풀을 사용하여 모든 스케줄 된 작업을 실행하도록 할 수 있다.
+
+아래는 설정 방법에 대한 예제이다.
+
+```java
+@Configuration
+public class SchedulerConfig implements SchedulingConfigurer {
+    private final int POOL_SIZE = 10;
+
+    @Override
+    public void configureTasks(ScheduledTaskRegistrar scheduledTaskRegistrar) {
+        ThreadPoolTaskScheduler threadPoolTaskScheduler = new ThreadPoolTaskScheduler();
+
+        threadPoolTaskScheduler.setPoolSize(POOL_SIZE);
+        threadPoolTaskScheduler.setThreadNamePrefix("my-scheduled-task-pool-");
+        threadPoolTaskScheduler.initialize();
+
+        scheduledTaskRegistrar.setTaskScheduler(threadPoolTaskScheduler);
+    }
+}
+```
+
+스케줄이 돌고있는 메소드에서 현재 스레드의 이름을 로깅하면 아래와 같은 출력이 표시된다.
+
+```java
+Current Thread : my-scheduled-task-pool-1
+Current Thread : my-scheduled-task-pool-2
+```
+
 
 참고: 
  - https://blog.outsider.ne.kr/1066
  - https://jdm.kr/blog/2
+ - https://www.callicoder.com/spring-boot-task-scheduling-with-scheduled-annotation/
 
 
 [jekyll-docs]: https://jekyllrb.com/docs/home
