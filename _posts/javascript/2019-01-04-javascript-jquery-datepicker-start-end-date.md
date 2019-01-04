@@ -42,7 +42,6 @@ $(document).ready(function () {
 			startDate.setDate(startDate.getDate() + 30);
 			endDate.datepicker('option', 'maxDate', startDate);
 			endDate.datepicker('option', 'minDate', minDate);
-			$(this).datepicker('option', 'minDate', minDate);
 		}
 	});
 	$('#endDate').datepicker({
