@@ -61,6 +61,6 @@ site:
     url: http://jmlim.github.io
 # Puglins
 mathjax: true # whether support mathjax
-google_analytics_token: 'UA-00000000-1' # leave blank if you don't want google analytics
+google_analytics_token: 'UA-132674733-1' # leave blank if you don't want google analytics
 disqus_short_name: jmlim # leave blank if you don't want disqus
 
