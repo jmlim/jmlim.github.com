@@ -153,6 +153,7 @@ public class MainController  {
 }
 ```
 
+[2부 - 모바일 분기 추가 설정하기 : http://jmlim.github.io/spring/2019/02/09/spring-boot-tiles-mobile/]
 
 
 [jekyll-docs]: https://jekyllrb.com/docs/home
