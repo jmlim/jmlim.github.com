@@ -4,7 +4,7 @@ title:  "스프링부트 + jsp 환경에서 tiles 사용하기"
 date:   2019-02-08 20:44:00 +0900
 categories: Spring
 comments: true
-tags: [Spring, Java]
+tags: [Spring, Java, tiles, 타일즈]
 ---
 
 ---
