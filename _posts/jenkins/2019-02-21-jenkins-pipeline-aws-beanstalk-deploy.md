@@ -13,7 +13,7 @@ tags: [Jenkins, Git, Maven, AWS, Elastic Beanstalk]
 > pipeline 에 대한 대략적인 내용 참고 : https://www.youtube.com/watch?v=56jtwSrNvrs
 
 ### 사전 준비되어 있는 부분
-- github 사용.
+- Github 사용.
 - jenkins 2.x 이상이 필요하며 파이프라인 플러그인 설치가 필요하다.
 - Elastic Beanstalk로 환경구성이 이미 되어 있다고 가정한다. 
 
