@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)https://mrcoles.com/piano/ -->
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="piano.css">
+    <style type="text/css">
+        img {
+            display: block;
+            margin: 0px auto;
+        }
+
+        body {
+            background-color: #000;
+        }
+
+        .keyboard_text {
+            text-align: center;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+        crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var keyNotes = {
+        /*a*/ 65: 0, // c
+        /*w*/ 87: 1, // c#
+        /*s*/ 83: 2, // d
+        /*e*/ 69: 3, // d#
+        /*d*/ 68: 4, // e
+        /*f*/ 70: 5, // f
+        /*t*/ 84: 6, // f#  
+        /*g*/ 71: 7, // g
+        /*y*/ 89: 8, // g#  
+        /*h*/ 72: 9, // a
+        /*u*/ 85: 10, // a#  
+        /*j*/ 74: 11, // b
+        /*k*/ 75: 12, // c
+        /*o*/ 79: 13, // c#  
+        /*l*/ 76: 14, // d
+        /*p*/ 80: 15, // d#  
+        /*;*/ 186: 16, // e
+        /*;*/ 59: 16, // e
+        /*,*/ 222: 17, // f
+        /*]*/ 221: 18, // f#  
+        /*enter*/ 13: 19, // g
+        /*b*/ 66: 20, // yee
+            };
+
+            var doremi = {
+                0: 'do',
+                1: 'do_sharp',
+                2: 're',
+                3: 're_sharp',
+                4: 'mi',
+                5: 'fa',
+                6: 'fa_sharp',
+                7: 'so',
+                8: 'so_sharp',
+                9: 'la',
+                10: 'la_sharp',
+                11: 'ti',
+                12: 'do_2',
+                13: 'do_sharp_2',
+                14: 're_2',
+                15: 're_sharp_2',
+                16: 'mi_2',
+                17: 'fa_2',
+                18: 'fa_sharp_2',
+                19: 'so_2',
+                20: 'yee'
+            }
+
+            var timeoutObj;
+
+            var downKeys = {};
+
+            function isModifierKey(evt) {
+                return evt.metaKey || evt.shiftKey || evt.altKey;
+            }
+
+            function playImage(type) {
+                var $yeeImage = $('#yee-image');
+                var headText = '';
+                var length = 5;
+                if (type === 'yee') {
+                    headText = 'yee';
+                    //length += 1;
+                }
+
+                for (var i = 1; i <= length; i += 1) {
+                    (function (x) {
+                        timeoutObj = window.setTimeout(function () {
+                            $yeeImage.attr('src', headText + x + '.png');
+                        }, 70 * x);
+                    })(i);
+                }
+            }
+
+            function playPiano(doremiByKey) {
+                var $keyboard = $("#keyboard_" + doremiByKey);
+                $keyboard.addClass("active");
+                window.setTimeout(function () {
+                    $keyboard.removeClass("active");
+                }, 350);
+            }
+
+
+            $(window).keydown(function (evt) {
+                var keyCode = evt.keyCode;
+                console.log('keycode', keyCode);
+                // prevent repeating keys
+                if (!downKeys[keyCode] && !isModifierKey(evt)) {
+                    downKeys[keyCode] = 1;
+                    var key = keyNotes[keyCode];
+                    if (typeof key != 'undefined') {
+                        console.log('key', key);
+                        var doremiByKey = doremi[key];
+                        if (!doremiByKey) {
+                            return;
+                        }
+                        clearTimeout(timeoutObj);
+                        var sound = $("#" + doremiByKey)[0];
+                        playImage(doremiByKey);
+                        playPiano(doremiByKey);
+                        sound.pause();
+                        sound.currentTime = 0;
+                        sound.play();
+                        // $keys.trigger('note-' + (key + notesShift + notesOffset) + '.play');
+                        evt.preventDefault();
+                    }
+                }
+            }).keyup(function (evt) {
+                delete downKeys[evt.keyCode];
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <img id="yee-image" src="1.png" />
+    <audio id="do" src="1.mp3" controls="true" hidden></audio>
+    <audio id="re" src="2.mp3" controls="true" hidden></audio>
+    <audio id="mi" src="3.mp3" controls="true" hidden></audio>
+    <audio id="fa" src="4.mp3" controls="true" hidden></audio>
+    <audio id="so" src="5.mp3" controls="true" hidden></audio>
+    <audio id="la" src="6.mp3" controls="true" hidden></audio>
+    <audio id="ti" src="7.mp3" controls="true" hidden></audio>
+
+    <audio id="do_2" src="8.mp3" controls="true" hidden></audio>
+    <audio id="re_2" src="9.mp3" controls="true" hidden></audio>
+    <audio id="mi_2" src="10.mp3" controls="true" hidden></audio>
+    <audio id="fa_2" src="11.mp3" controls="true" hidden></audio>
+    <audio id="so_2" src="12.mp3" controls="true" hidden></audio>
+
+    <audio id="do_sharp" src="1sharp.mp3" controls="true" hidden></audio>
+    <audio id="re_sharp" src="2sharp.mp3" controls="true" hidden></audio>
+    <audio id="fa_sharp" src="4sharp.mp3" controls="true" hidden></audio>
+    <audio id="so_sharp" src="5sharp.mp3" controls="true" hidden></audio>
+    <audio id="la_sharp" src="6sharp.mp3" controls="true" hidden></audio>
+
+    <audio id="do_sharp_2" src="8sharp.mp3" controls="true" hidden></audio>
+    <audio id="re_sharp_2" src="9sharp.mp3" controls="true" hidden></audio>
+    <audio id="fa_sharp_2" src="11sharp.mp3" controls="true" hidden></audio>
+
+    <audio id="yee" src="yee.mp3" controls="true" hidden></audio>
+
+
+    <div id="p-wrapper">
+        <ul id="piano">
+            <li>
+                <div id="keyboard_do" class="anchor"></div><div class="keyboard_text">A</div>
+            </li>
+
+            <li>
+                <div id="keyboard_re" class="anchor"></div><div class="keyboard_text">S</div><span id="keyboard_do_sharp"></span>
+            </li>
+            <li>
+                <div id="keyboard_mi" class="anchor"></div><div class="keyboard_text">D</div><span id="keyboard_re_sharp"></span>
+            </li>
+            <li>
+                <div id="keyboard_fa" class="anchor"></div><div class="keyboard_text">F</div>
+            </li>
+            <li>
+                <div id="keyboard_so" class="anchor"></div><div class="keyboard_text">G</div><span id="keyboard_fa_sharp"></span>
+            </li>
+            <li>
+                <div id="keyboard_la" class="anchor"></div><div class="keyboard_text">H</div><span id="keyboard_so_sharp"></span>
+            </li>
+            <li>
+                <div id="keyboard_ti" class="anchor"></div><div class="keyboard_text">J</div><span id="keyboard_la_sharp"></span>
+            </li>
+            <li>
+                <div id="keyboard_do_2" class="anchor"></div><div class="keyboard_text">K</div>
+            </li>
+            <li>
+                <div id="keyboard_re_2" class="anchor"></div><div class="keyboard_text">L</div><span id="keyboard_do_sharp_2"></span>
+            </li>
+            <li>
+                <div id="keyboard_mi_2" class="anchor"></div><div class="keyboard_text">;</div><span id="keyboard_re_sharp_2"></span>
+            </li>
+            <li>
+                <div id="keyboard_fa_2" class="anchor"></div><div class="keyboard_text">'</div>
+            </li>
+            <li>
+                <div id="keyboard_so_2" class="anchor"></div><div class="keyboard_text">enter</div><span id="keyboard_fa_sharp_2"></span>
+            </li>
+        </ul>
+    </div>
+
+    <div id="yee-wrapper">
+        <div id="keyboard_yee" class="yee_button_radius yee_button">Yee (B)</div>
+    </div>
+</body>
+
+</html>
