@@ -4,7 +4,7 @@ title:  "docker를 통한 ngrinder 설치 및 사용"
 date:   2019-07-02 00:00:00 +0900
 categories: ngrinder
 comments: true
-tags: [ngrinder, 엔그라인더, 부하테스트]
+tags: [ngrinder, Docker, 엔그라인더, 부하테스트]
 ---
 
 ---
@@ -77,7 +77,7 @@ Agent: Any ==> Controller: 12000 ~ 1200x
 
 ### 12000 ~ 1200x 포트는 "테스트 실행, 테스트 종료" 와 같은 컨트롤러 명령어와 에이전트별 테스트 실행 통계를 초별로 수집하는 포트.
 
-### nGrinder 관련 용어 설명
+## nGrinder 관련 용어 설명
 
  <img src="{{ site.baseurl }}/public/post/ngrinder/ngrinder-controller.png"/>
  
@@ -107,6 +107,124 @@ Agent: Any ==> Controller: 12000 ~ 1200x
 
 ### 인텔리제이에서 엔그라인더 그루비 스크립트 실행 시 vm option 에 추가.
 -javaagent:/Users/jmlim/.m2/repository/net/sf/grinder/grinder-dcr-agent/3.9.1/grinder-dcr-agent-3.9.1.jar
+
+### Get, Post 요청 샘플 스크립트.
+
+~~~groovy
+import HTTPClient.Cookie
+import HTTPClient.CookieModule
+import HTTPClient.HTTPResponse
+import HTTPClient.NVPair
+import groovy.json.JsonOutput
+import net.grinder.plugin.http.HTTPPluginControl
+import net.grinder.plugin.http.HTTPRequest
+import net.grinder.script.GTest
+import net.grinder.scriptengine.groovy.junit.GrinderRunner
+import net.grinder.scriptengine.groovy.junit.annotation.BeforeProcess
+import net.grinder.scriptengine.groovy.junit.annotation.BeforeThread
+import org.junit.Before
+import org.junit.Test
+import org.junit.runner.RunWith
+
+import static net.grinder.script.Grinder.grinder
+import static org.hamcrest.Matchers.is
+import static org.junit.Assert.assertThat
+
+/**
+ * ngrinder get, post 요청 샘플 스크립트.
+ */
+@RunWith(GrinderRunner)
+class SampleGetPostRunner {
+
+    public static GTest test
+    public static HTTPRequest request
+    public static NVPair[] headers = []
+    public static Cookie[] cookies = []
+
+    static String url = "http://테스트할아이피:포트"
+    static String commonPath = "/test"
+
+    static String findUrl = url + commonPath + "/find";
+    static String createUrl = url + commonPath + "/create"
+
+    @BeforeProcess
+    static void beforeProcess() {
+        HTTPPluginControl.getConnectionDefaults().timeout = 6000
+        test = new GTest(1, "api.test.com")
+        request = new HTTPRequest()
+        // Set header datas
+        List<NVPair> headerList = new ArrayList<NVPair>()
+        headerList.add(new NVPair("Content-Type", "application/json"))
+        headerList.add(new NVPair("Authorization", "Bearer 토큰토큰"))
+
+        headers = headerList.toArray()
+        grinder.logger.info("before process.");
+    }
+
+    @BeforeThread
+    void beforeThread() {
+        test.record(this, "test")
+        grinder.statistics.delayReports = true;
+        grinder.logger.info("before thread.");
+    }
+
+    @Before
+    void before() {
+        request.setHeaders(headers)
+        cookies.each { CookieModule.addCookie(it, HTTPPluginControl.getThreadHTTPClientContext()) }
+        grinder.logger.info("before thread. init headers and cookies");
+    }
+
+    @Test
+    void test() {
+        find();
+
+        create();
+    }
+
+
+    /**
+     * get test
+     */
+    void find() {
+        HTTPResponse result = request.GET(findUrl)
+        resultCheck(result)
+    }
+
+    /**
+     * post test
+     */
+    void create() {
+        String goodsId = "1234";
+        Integer quantity = 2;
+
+        Map<String, Object> paramData = new HashMap<>();
+        List<Map<String, Object>> items = new ArrayList<>();
+        Map<String, Object> item = new HashMap<>();
+        item.put("goods_id", goodsId);
+        item.put("quantity", quantity);
+        items.add(item);
+        paramData.put("items", items);
+
+        String json = JsonOutput.toJson(paramData);
+        HTTPResponse result = request.POST(createUrl, json.getBytes())
+        resultCheck(result)
+    }
+
+    /**
+     * 결과값 체크
+     * @param result
+     */
+    void resultCheck(result) {
+        if (result.statusCode == 301 || result.statusCode == 302) {
+            grinder.logger.warn("Warning. The response may not be correct. The response code was {}.", result.statusCode);
+        } else {
+            assertThat(result.statusCode, is(200));
+        }
+    }
+}
+
+~~~
 
 
 참고자료:
