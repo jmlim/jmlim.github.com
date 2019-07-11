@@ -9,7 +9,7 @@ tags: [Amazon Linux, EC2, maven, mvn, install]
 
 ---
 
-## AWS EC2 Linux(Amazon Linux) 에 메이븐(maven) 설치하기
+## AWS EC2 Linux(Amazon Linux) 에 메이븐(maven) 설치하기.
 
 아주 간단한 방법으로 Maven을 설치 가능하다.
 
