@@ -31,6 +31,7 @@ tags: [Windows, OpenSSH, ssh, cmd]
 
 ## 7. cmd 창에서 ssh 접근 확인. (처음 접근 시 yes 타이핑 하고 시작.)
  - 접속방식은 아래와 같다.
+ 
  ```
  ssh 아이디@서버아이피
  또는
@@ -39,6 +40,7 @@ tags: [Windows, OpenSSH, ssh, cmd]
  포트가 다를경우 
  ssh 아이피 -l 아이디 -p 포트
  ```
+ 
  <img src="{{ site.baseurl }}/public/post/windows-openssh/cmd-ssh-connect.png"/>
 
 ## 기타. Windows 10 호스트 키 저장경로
