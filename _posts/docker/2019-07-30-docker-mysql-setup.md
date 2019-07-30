@@ -91,8 +91,10 @@ Query OK, 0 rows affected (0.00 sec)
 mysql> quit
 ~~~
 
-연결 테스트를 해본다.
+## 8. 연결 테스트를 해본다.
+<img src="{{ site.baseurl }}/public/post/docker-mysql-setup/docker-mysql-connect-test.png"/> 
 
+> 외부에 있는 윈도우 피시의 HeidiSQL 툴로 접근 테스트 결과 잘 된다.
 
 
 참고자료: 
