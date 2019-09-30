@@ -31,28 +31,33 @@ import java.net.URISyntaxException;
 public class ExRedirectController {
    // return string
    @GetMapping("/ex_redirect1")
-   public String exRedirect() {
+   public String exRedirect1() {
        return "redirect:http://www.naver.com";
    }
    // return ModelAndView
    @GetMapping("/ex_redirect2")
-   public ModelAndView exRedirectAnother() {
+   public ModelAndView exRedirect2() {
        String projectUrl = "redirect:http://www.naver.com";
        return new ModelAndView("redirect:" + projectUrl);
    }
-   //
+   
+   // httpServletResponse.sendRedirect
    @GetMapping("/ex_redirect3")
-   public void redirectToTwitter(HttpServletResponse httpServletResponse) throws IOException {
+   public void exRedirect3(HttpServletResponse httpServletResponse) throws IOException {
        httpServletResponse.sendRedirect("https://naver.com");
    }
+   
+   // RedirectView 
    @RequestMapping("/ex_redirect4")
-   public RedirectView localRedirect() {
+   public RedirectView exRedirect4() {
        RedirectView redirectView = new RedirectView();
        redirectView.setUrl("http://www.naver.com");
        return redirectView;
    }
+   
+   // httpHeaders
    @RequestMapping("/ex_redirect5")
-   public ResponseEntity<Object> redirectToExternalUrl() throws URISyntaxException {
+   public ResponseEntity<Object> exRedirect5() throws URISyntaxException {
        URI yahoo = new URI("http://www.naver.com");
        HttpHeaders httpHeaders = new HttpHeaders();
        httpHeaders.setLocation(yahoo);
