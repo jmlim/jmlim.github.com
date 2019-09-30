@@ -58,9 +58,9 @@ public class ExRedirectController {
    // httpHeaders
    @RequestMapping("/ex_redirect5")
    public ResponseEntity<Object> exRedirect5() throws URISyntaxException {
-       URI yahoo = new URI("http://www.naver.com");
+       URI redirectUri = new URI("http://www.naver.com");
        HttpHeaders httpHeaders = new HttpHeaders();
-       httpHeaders.setLocation(yahoo);
+       httpHeaders.setLocation(redirectUri);
        return new ResponseEntity<>(httpHeaders, HttpStatus.SEE_OTHER);
    }
 }
