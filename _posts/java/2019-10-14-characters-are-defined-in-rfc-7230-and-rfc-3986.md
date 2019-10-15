@@ -9,7 +9,7 @@ tags: [Java, Exception, ERROR, Invalid character, RFC 7230, RFC 3986]
 
 ---
 
-배경: 
+## 배경: 
 - 스프링 부트를 사용하고 있으며, 최신 내장형 탐캣은 7에서 8.5로 되었다고 가정한다.
 
 ## 요청 예 
@@ -24,11 +24,7 @@ tags: [Java, Exception, ERROR, Invalid character, RFC 7230, RFC 3986]
 ~~~java
 @Data
 public class JmlimRequest {
-    //private String loginSSO;
-    //private String from;
-    //private String app;
     private Map<String, Object> jmlim;
-    //private SsoReloadRequest reload;
 }
 ~~~
 
