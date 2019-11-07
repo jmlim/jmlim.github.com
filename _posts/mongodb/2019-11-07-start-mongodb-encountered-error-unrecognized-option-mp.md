@@ -9,7 +9,7 @@ tags: [MongoDB Setup, Windows, MongoDB]
 
 ---
 
-최근 몽고디비를 통한 테스트가 필요하여 Windows 10에 패키지를 통한 설치를 하였다.
+최근 몽고디비 스터디를 하고 있고 로컬에서 설치 후 학습이 필요하여 Windows 10에 패키지로 설치를 하였다.
 
 > https://www.mongodb.com/download-center/community 의 msi 파일 설치. (version 4.2 msi 패키지 파일)
 
