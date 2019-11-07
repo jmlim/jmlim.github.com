@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Windows에서 MongoDB에서 cfg 파일에서 옵션 변경 후 실행 시 "Unrecognized option: mp" 오류 발생문제."
+title:  "Windows에서 MongoDB 설치 후 cfg 파일을 통한 실행 시 "Unrecognized option: mp" 오류 발생문제."
 date:   2019-11-07 12:33:00 +0900
 categories: MongoDB
 comments: true
