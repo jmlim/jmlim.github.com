@@ -11,7 +11,7 @@ tags: [Spring, Spring boot, Fiiter, Content-Length]
 ## Bean 등록
 스프링부트에서는 web.xml 이 더 이상 사용되지 않아 서블릿이나 필터를 org.springframework.boot.web.servlet 의 RegistrationBean 을 통해 등록해야 한다.
 
-형식
+####  형식
 ~~~java
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -30,9 +30,9 @@ public class FilterConfig {
 ~~~
 
 
-> rest 형태의 API 호출 시 Transfer-Encoding: chunked 대신 Content-Length 정보 나오도록 하고 싶을 때 필터 사용 예제.
- - ShallowEtagHeaderFilter 를 필터 체인에 추가.
 
+### rest 형태의 API 호출 시 Transfer-Encoding: chunked 대신 Content-Length 정보 나오도록 하고 싶을 때 필터 사용 예제.
+#### ShallowEtagHeaderFilter 를 필터 체인에 추가.
 
 ~~~java
 @Configuration
@@ -48,7 +48,7 @@ public class FilterConfig {
 }
 ~~~
 
-> 응답결과 
+#### 응답결과 
 ~~~
 HTTP/1.1 200 OK
 Server: Apache-Coyote/1.1
