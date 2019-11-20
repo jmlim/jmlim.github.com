@@ -32,6 +32,8 @@ public class FilterConfig {
 
 > rest 형태의 API 호출 시 Transfer-Encoding: chunked 대신 Content-Length 정보 나오도록 하고 싶을 때 필터 사용 예제.
  - ShallowEtagHeaderFilter 를 필터 체인에 추가.
+
+
 ~~~java
 @Configuration
 public class FilterConfig {
