@@ -30,6 +30,12 @@ git remote remove origin
 git remote add origin https://github.com/playauto/리포지토리명 
 ```
 
+### 기존 리포지토리를 새 리포지토리 remote 에 전부 push
+```
+git push -u origin --all
+git push -u origin --tags
+```
+
 출처 : 
   - https://gist.github.com/480/4681b67d2a906db8c6c1321cc678f05f
 
