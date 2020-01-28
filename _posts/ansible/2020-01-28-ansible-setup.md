@@ -17,7 +17,8 @@ adminui-iMac: jmlim$ pip3 install ansible
 ~~~
 
 ### Ansible 설정하기.
-> /etc/ansible 폴더 추가 후 hosts 파일 생성  
+- /etc/ansible 폴더 추가 후 hosts 파일 생성  
+
 ~~~
 adminui-iMac: jmlim$ cd /etc
 adminui-iMac:etc jmlim$ mkdir ansible
@@ -26,6 +27,7 @@ adminui-iMac:ansible jmlim$ cd ansible
 adminui-iMac:ansible jmlim$ sudo vim hosts
 .....
 ~~~
+
 - /etc/ansible/hosts 파일 수정
 ~~~
 [jmlim]
@@ -59,7 +61,8 @@ apt-get install -y sshpass
 ~~~
 
 ### 맥에서는 다음과 같이 설치
-> homebrew로 설치가능한데, 디폴트 저장소에는 존재하지 않아 다음의 명령으로 가능하다.
+- homebrew로 설치가능한데, 디폴트 저장소에는 존재하지 않아 다음의 명령으로 설치한다.
+
 ~~~
 brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb
 ... 설치설치...
