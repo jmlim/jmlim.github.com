@@ -29,6 +29,7 @@ adminui-iMac:ansible jmlim$ sudo vim hosts
 ~~~
 
 - /etc/ansible/hosts 파일 수정
+
 ~~~
 [jmlim]
 10.30.175.66
