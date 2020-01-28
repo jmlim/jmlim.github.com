@@ -9,14 +9,14 @@ tags: [Ansible, 앤서블]
 
 ---
 
-### Ansible pip3 로 설치
+## 1. Ansible pip3 로 설치
 > pip3 를 통해 설치하였다.
 
 ~~~
 adminui-iMac: jmlim$ pip3 install ansible
 ~~~
 
-### Ansible 설정하기.
+## 2.  Ansible 설정하기.
 - /etc/ansible 폴더 추가 후 hosts 파일 생성  
 
 ~~~
@@ -35,7 +35,7 @@ adminui-iMac:ansible jmlim$ sudo vim hosts
 10.30.175.66
 ~~~
 
-### 접속 테스트
+## 3. 접속 테스트
 - Mac 에서 ansible 설치 및 /etc/ansible/hosts 에 타겟 서버 아이피까지 등록 후 ping 을 시도 하였는데 아래와 같이 에러가 발생하였다.
 
 ~~~
@@ -50,18 +50,18 @@ SSH password:
 지금 서버에서 해당 서버에 연결할 수 있도록 하기 위해 ansible 서버에 sshpass 설치가 필요하다.
 
 다음과 같이 설치가능하다.
-
-### CentOS, Fedora 같은 Redhat 계열
+## 4. sshpass 설치
+### 4.1 CentOS, Fedora 같은 Redhat 계열
 ~~~
 yum install -y sshpass
 ~~~
 
-### Ubuntu와 같은 debian 계열
+### 4.2 Ubuntu와 같은 debian 계열
 ~~~
 apt-get install -y sshpass
 ~~~
 
-### 맥에서는 다음과 같이 설치
+### 4.3 맥에서는 다음과 같이 설치
 - homebrew로 설치가능한데, 디폴트 저장소에는 존재하지 않아 다음의 명령으로 설치한다.
 
 ~~~
@@ -69,7 +69,7 @@ brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Librar
 ... 설치설치...
 ~~~
 
-### 재시도 결과 성공.
+## 5. 재시도 결과 성공.
 ~~~
 adminui-iMac:ansible jmlim$ ansible all -m ping -k --user 계정
 SSH password: 패스워드
