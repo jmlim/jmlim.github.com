@@ -28,7 +28,7 @@ git stash create [<message>]
 git stash store [-m|--message <message>] [-q|--quiet] <commit>
 ~~~
 
-## git stash 기본적인 사용법
+## git stash 기본적인 사용법 (명령어)
  - git stash
     - 현재 작업을 stash 영역에 저장해두고 branch를 head로 리셋(git reset --hard)
     - 기본 명칭 WIP 로 저장됨
@@ -61,21 +61,21 @@ git stash store [-m|--message <message>] [-q|--quiet] <commit>
 ###  1. 프로젝트 오른쪽 클릭 후 git -> Repository -> Stash Changes 
  > 또는 Find Action (shift 2번 클릭 후 상단바 선택) 후 Stash Changes 입력
 
- <img src="{{ site.baseurl }}/public/post/gitimg/git-stash1.png" width="800px" height="400px"/>
+ <img src="{{ site.baseurl }}/public/post/gitimg/git-stash1.png" width="800px" height="500px"/>
  
 ### 2. 작업명 작성 후 Create Stash 클릭
 
-<img src="{{ site.baseurl }}/public/post/gitimg/git-stash2.png" width="800px" height="400px"/>
+<img src="{{ site.baseurl }}/public/post/gitimg/git-stash2.png" width="800px" height="500px"/>
 
 ### stash 가져오기 
 ###  1. 프로젝트 오른쪽 클릭 후 git -> Repository -> UnStash Changes 
  > 또는 Find Action (shift 2번 클릭 후 상단바 선택) 후 Unstash Changes 입력
 
-<img src="{{ site.baseurl }}/public/post/gitimg/git-stash3.png" width="800px" height="400px"/>
+<img src="{{ site.baseurl }}/public/post/gitimg/git-stash3.png" width="800px" height="500px"/>
 
 ### 2. 목록에서 가져올 stash 선택 후 Apply Stash 클
 
-<img src="{{ site.baseurl }}/public/post/gitimg/git-stash4.png" width="800px" height="400px"/>
+<img src="{{ site.baseurl }}/public/post/gitimg/git-stash4.png" width="800px" height="500px"/>
 
 ## 참고자료
  - https://gmlwjd9405.github.io/2018/05/18/git-stash.html
