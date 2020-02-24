@@ -11,6 +11,8 @@ tags: [macOS, aws, awscli, pip]
 
 ## 현상
  - mac os awscli 실행을 위해 스크립트를 실행 하였는데 아래 에러가 발생하였다. 
+
+
 ~~~
 adminui-iMac:.aws jmlim$ aws
 Traceback (most recent call last):
@@ -42,6 +44,8 @@ $ brew install python3
 
 ## pip 설치 
  - 내 경우엔 pip 명령어 실행 시 실행명령어를 찾지 못했었다.
+
+
 ~~~
 sudo easy_install pip
 ~~~
