@@ -69,7 +69,7 @@ version: "3" # 파일 규격 버전
 services: # 이 항목 밑에 실행하려는 컨테이너 들을 정의
   db: # 서비스 명
     image: mysql:8.0.17 # 사용할 이미지
-    container_name: jmlim-mysql-5635-utf8 # 컨테이너 이름 설정
+    container_name: jmlim-mysql # 컨테이너 이름 설정
     ports:
       - "3306:3306" # 접근 포트 설정 (컨테이너 외부:컨테이너 내부)
     environment: # -e 옵션
@@ -78,7 +78,7 @@ services: # 이 항목 밑에 실행하려는 컨테이너 들을 정의
       - --character-set-server=utf8mb4 
       - --collation-server=utf8mb4_unicode_ci
     volumes:
-      - /Users/jmlim/datadir_utf8_5635:/var/lib/mysql # -v 옵션 (다렉토리 마운트 설정)
+      - /Users/jmlim/datadir:/var/lib/mysql # -v 옵션 (다렉토리 마운트 설정)
 ~~~
 
 ### 실행 docker-compose 파일 실행
