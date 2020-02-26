@@ -85,6 +85,7 @@ services: # 이 항목 밑에 실행하려는 컨테이너 들을 정의
  - docker-compose.yml 작성한 위치에서 실행
  - 백그라운드로 실행 시 옵션 -d 붙이면 됨.
    - 자세한건 옵션 참고
+
 ~~~
 docker-compose up -d
 ~~~
