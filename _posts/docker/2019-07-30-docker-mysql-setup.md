@@ -49,7 +49,7 @@ docker images
 docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password --name jmlim-mysql -v /Users/jmlim/datadir:/var/lib/mysql mysql:8.0.17
 ~~~
 
- - 하지만 위 명령어로 실행하여 mysql db를 생성하여 개발 시 한글문제가 살생할 것이다.
+ - 하지만 위 명령어로 실행하여 mysql db를 생성하여 개발 시 한글문제가 발생 할 것이다.
  - 한글이 깨지지 않도록 설정하려면 아래 인자값을 넣어주어야 한다. 
  
  ~~~
