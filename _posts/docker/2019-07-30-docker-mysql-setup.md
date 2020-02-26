@@ -4,10 +4,11 @@ title:  "Docker를 통한 MySQL 설치하기. (macOS)"
 date:   2019-07-30 11:00:00 +0900
 categories: Docker
 comments: true
-tags: [Docker, docker, MySQL, 도커]
+tags: [Docker, docker, MySQL, 도커, Mysql Docker 한글문제]
 ---
 
 ---
+ > 2020-02-26 에 한글깨짐 관련 내용 추가 함.
 
 이 글에선 Mac 용 docker에서 MySQL을 설정하는 방법과 MAC OS에서 MySQL에 접근 방법에 대해 알아본다.
 
@@ -46,6 +47,46 @@ docker images
 
 ~~~
 docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password --name jmlim-mysql -v /Users/jmlim/datadir:/var/lib/mysql mysql:8.0.17
+~~~
+
+ - 하지만 위 명령어로 실행하여 mysql db를 생성하여 개발 시 한글문제가 살생할 것이다.
+ - 한글이 깨지지 않도록 설정하려면 아래 인자값을 넣어주어야 한다. 
+ 
+ ~~~
+ --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+ ~~~
+###  ex ) 
+~~~
+ docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password --name jmlim-mysql -v /Users/jmlim/datadir:/var/lib/mysql mysql:8.0.17 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+~~~
+
+위 명령어를 실행하여 컨테이너를 올려도 되지만 아래와 같이 docker-compose.yml 파일로 만들어서 실행할 수 있다.
+ - 장황환 도커 옵션을 한눈에 볼 수 있어 편하다.
+
+### docker-compose.yml 파일 생성.
+~~~
+version: "3" # 파일 규격 버전
+services: # 이 항목 밑에 실행하려는 컨테이너 들을 정의
+  db: # 서비스 명
+    image: mysql:8.0.17 # 사용할 이미지
+    container_name: jmlim-mysql-5635-utf8 # 컨테이너 이름 설정
+    ports:
+      - "3306:3306" # 접근 포트 설정 (컨테이너 외부:컨테이너 내부)
+    environment: # -e 옵션
+      MYSQL_ROOT_PASSWORD: "password"  # MYSQL 패스워드 설정 옵션
+    command: # 명령어 실행
+      - --character-set-server=utf8mb4 
+      - --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - /Users/jmlim/datadir_utf8_5635:/var/lib/mysql # -v 옵션 (다렉토리 마운트 설정)
+~~~
+
+### 실행 docker-compose 파일 실행
+ - docker-compose.yml 작성한 위치에서 실행
+ - 백그라운드로 실행 시 옵션 -d 붙이면 됨.
+   - 자세한건 옵션 참고
+~~~
+docker-compose up -d
 ~~~
 
 ## 4. Docker 컨테이너 목록 출력
@@ -100,6 +141,8 @@ mysql> quit
 참고자료: 
  - https://jayden-lee.github.io/post/docker/mysql-install
  - https://dzone.com/articles/docker-for-mac-mysql-setup
+ - https://hub.docker.com/_/mysql
+ - https://www.44bits.io/ko/post/almost-perfect-development-environment-with-docker-and-docker-compose
 
 [jekyll-docs]: https://jekyllrb.com/docs/home
 [jekyll-gh]:   https://github.com/jekyll/jekyll
