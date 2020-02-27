@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "IntelliJ IDEA 에서 빌드시 Command line is too long. Shorten command line for .. 에러 발생 문제 해결"
-date:   2020-02-27 10:35:00 +0900
+date:   2020-02-27 22:35:00 +0900
 categories: Intellij
 comments: true
 tags: [Intellij, Intellij Build Error]
