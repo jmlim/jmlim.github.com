@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Docker를 통한 MySQL 설치하기. (macOS)"
+title:  "Docker를 통한 MySQL 설치하기."
 date:   2019-07-30 11:00:00 +0900
 categories: Docker
 comments: true
@@ -10,10 +10,10 @@ tags: [Docker, docker, MySQL, 도커, Mysql Docker 한글문제]
 ---
  > 2020-02-26 에 한글깨짐 관련 내용 추가 함.
 
-이 글에선 Mac 용 docker에서 MySQL을 설정하는 방법과 MAC OS에서 MySQL에 접근 방법에 대해 알아본다.
+이 글에선 docker에서 MySQL을 설정하는 방법과 docker를 통해 설치한 MySQL에 접근 방법에 대해 알아본다.
 
 Docker가 무엇인지 알고, MySQL을 사용하는 방법을 이해하고 SQL 명령을 사용하여 사용자를 생성하고, 데이터베이스를 만들고, 권한을 부여하는 방법을 이해하고 있다고 가정한다.
-> docker가 설치되어 있다고 가정한다.
+> docker가 설치되어 있다고 가정하였고 Mac OS에 설치하였다.
 
 ## 1. 도커 버전 확인
 
@@ -50,12 +50,12 @@ docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password --name jmlim-mysql -v
 ~~~
 
  - 하지만 위 명령어로 실행하여 mysql db를 생성하여 개발 시 한글문제가 발생 할 것이다.
- - 한글이 깨지지 않도록 설정하려면 아래 인자값을 넣어주어야 한다. 
- 
+ - 한글이 깨지지 않도록 설정하려면 아래 인자값을 넣어주어야 한다.
+
  ~~~
  --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
  ~~~
-###  ex ) 
+###  ex )
 ~~~
  docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password --name jmlim-mysql -v /Users/jmlim/datadir:/var/lib/mysql mysql:8.0.17 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
 ~~~
@@ -75,7 +75,7 @@ services: # 이 항목 밑에 실행하려는 컨테이너 들을 정의
     environment: # -e 옵션
       MYSQL_ROOT_PASSWORD: "password"  # MYSQL 패스워드 설정 옵션
     command: # 명령어 실행
-      - --character-set-server=utf8mb4 
+      - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_unicode_ci
     volumes:
       - /Users/jmlim/datadir:/var/lib/mysql # -v 옵션 (다렉토리 마운트 설정)
@@ -103,7 +103,7 @@ docker exec -it jmlim-mysql bash
 ~~~
 
 ## 6. MySQL 서버 접속
-로컬에서 mysql를 설치하고 접속하는 방법과 동일. 
+로컬에서 mysql를 설치하고 접속하는 방법과 동일.
 패스워드는 MySQL 컨테이너를 실행할 때 지정한 정보를 입력한다.
  - MYSQL_ROOT_PASSWORD = password
 
@@ -134,12 +134,12 @@ mysql> quit
 ~~~
 
 ## 8. 연결 테스트를 해본다.
-<img src="{{ site.baseurl }}/public/post/docker-mysql-setup/docker-mysql-connect-test.png"/> 
+<img src="{{ site.baseurl }}/public/post/docker-mysql-setup/docker-mysql-connect-test.png"/>
 
 > 외부에 있는 윈도우 피시의 HeidiSQL 툴로 접근 테스트 결과 잘 된다.
 
 
-참고자료: 
+참고자료:
  - https://jayden-lee.github.io/post/docker/mysql-install
  - https://dzone.com/articles/docker-for-mac-mysql-setup
  - https://hub.docker.com/_/mysql
