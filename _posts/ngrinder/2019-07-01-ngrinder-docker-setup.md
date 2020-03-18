@@ -17,7 +17,7 @@ Controller, Agent, Target 서버로 나누어져 있음.
 
 
  <img src="{{ site.baseurl }}/public/post/ngrinder/ngrinder-system-architecture.png"/>
- 
+
  [ngrinder system 아키텍쳐 이미지]
 
 ### Controller
@@ -59,10 +59,10 @@ agent는 controller_ip:controller_webport 부분을 옵션 argument로 전달해
 
 > ex) controller가 떠있는 instance의 public ip가 192.168.100.12이고 80번 포트를 웹포트로 열었다면 "192.168.100.12:80" 을 뒤에 붙여주면 된다.
 
-## 실행하기 
+## 실행하기
 브라우저에서 아래 주소 입력
 ```
-http://controller_ip:port 
+http://controller_ip:port
 id: admin
 pw: admin
 ```
@@ -80,23 +80,23 @@ Agent: Any ==> Controller: 12000 ~ 1200x
 ## nGrinder 관련 용어 설명
 
  <img src="{{ site.baseurl }}/public/post/ngrinder/ngrinder-controller.png"/>
- 
+
  [ngrinder 설정화면]
- 
+
  - vuser : virtual user로 동시에 접속하는 유저의 수를 의미. (vuesr = agent * process * thread)
- - TPS : 초당 트랜잭션의 수 - 초당 처리 수 
- - 트랜잭션 : HTTP Request가 성공할 때마다, 트랜잭션 수가 1씩 증가. 
+ - TPS : 초당 트랜잭션의 수 - 초당 처리 수
+ - 트랜잭션 : HTTP Request가 성공할 때마다, 트랜잭션 수가 1씩 증가.
  - Peak TPS : 초당 처리 수의 최대치.
  - Response Time : 사용자가 request한 시점에서 시스템이 response할 때까지 걸린 시간.
- - Think Time : 사용자에게 전달된 정보는 사용자가 해당 내용을 인지하고 다음 동작을 취할 때까지의 생각하는 시간 
+ - Think Time : 사용자에게 전달된 정보는 사용자가 해당 내용을 인지하고 다음 동작을 취할 때까지의 생각하는 시간
 
 ## 스크립트
  - nGrinder 에 로그인을 하면 스크립트 관리 화면에서 SVN URL을 확인할 수 있다. (ngrinder 에 svn 이 내장되어있다.)
 
  <img src="{{ site.baseurl }}/public/post/ngrinder/ngrinder-script-svn.png"/>
- 
+
  [ngrinder 스크립트 관리]
- 
+
  > 예를 들어 위 화면에서는 http://ngrinder-staging.nhncorp.com:8080/svn/admin/project SVN URL로 Groovy 메이븐 프로젝트를 접근할 수 있다.
 
 ### 인텔리제이에서 엔그라인더의 그루비 스크립트 메이븐 임포트 시 참고자료
@@ -109,6 +109,8 @@ Agent: Any ==> Controller: 12000 ~ 1200x
 -javaagent:/Users/jmlim/.m2/repository/net/sf/grinder/grinder-dcr-agent/3.9.1/grinder-dcr-agent-3.9.1.jar
 
 ### Get, Post 요청 샘플 스크립트.
+
+ - application/json 요청 (jsonBody 형태의 요청일 경우..)
 
 ~~~groovy
 import HTTPClient.Cookie
@@ -226,11 +228,183 @@ class SampleGetPostRunner {
 
 ~~~
 
+- 일반 form post 요청일 경우
+~~~
+import HTTPClient.HTTPResponse
+import HTTPClient.NVPair
+import net.grinder.plugin.http.HTTPPluginControl
+import net.grinder.plugin.http.HTTPRequest
+import net.grinder.script.GTest
+import net.grinder.scriptengine.groovy.junit.GrinderRunner
+import net.grinder.scriptengine.groovy.junit.annotation.BeforeProcess
+import net.grinder.scriptengine.groovy.junit.annotation.BeforeThread
+import org.junit.Before
+import org.junit.Test
+import org.junit.runner.RunWith
+
+import static net.grinder.script.Grinder.grinder
+import static org.hamcrest.Matchers.is
+import static org.junit.Assert.assertThat
+
+/**
+ * ngrinder get, post 요청 샘플 스크립트.
+ */
+@RunWith(GrinderRunner)
+class TestRunner {
+
+    public static GTest test
+    public static HTTPRequest request
+    public static NVPair[] headers = []
+
+    static String url = "https://타겟url"
+    static String commonPath = "/api"
+
+    static String appinitUrl = url + commonPath + "/app"
+
+    @BeforeProcess
+    static void beforeProcess() {
+        HTTPPluginControl.getConnectionDefaults().timeout = 6000
+        test = new GTest(1, "타겟명")
+        request = new HTTPRequest()
+        grinder.logger.info("before process.");
+    }
+
+    @BeforeThread
+    void beforeThread() {
+        test.record(this, "test")
+        grinder.statistics.delayReports = true;
+        grinder.logger.info("before thread.");
+    }
+
+    @Before
+    void before() {
+        request.setHeaders(headers)
+    }
+
+    @Test
+    void test() {
+        NVPair param1 = new NVPair("appcode", "999");
+        NVPair param2 = new NVPair("appversion", "x");
+        NVPair param3 = new NVPair("hashcode", "1122334455667788");
+
+        NVPair[] params = [param1, param2, param3]
+
+        HTTPResponse result = request.POST(appinitUrl, params)
+        resultCheck(result)
+    }
+
+    /**
+     * 결과값 체크
+     * @param result
+     */
+    void resultCheck(result) {
+        println result
+        if (result.statusCode == 301 || result.statusCode == 302) {
+            grinder.logger.warn("Warning. The response may not be correct. The response code was {}.", result.statusCode);
+        } else {
+            assertThat(result.statusCode, is(200));
+        }
+    }
+}
+
+~~~
+
+- 파일 업로드 post 요청 (multipart/form-data)
+
+~~~
+import HTTPClient.Codecs
+import HTTPClient.HTTPResponse
+import HTTPClient.NVPair
+import net.grinder.plugin.http.HTTPPluginControl
+import net.grinder.plugin.http.HTTPRequest
+import net.grinder.script.GTest
+import net.grinder.scriptengine.groovy.junit.GrinderRunner
+import net.grinder.scriptengine.groovy.junit.annotation.BeforeProcess
+import net.grinder.scriptengine.groovy.junit.annotation.BeforeThread
+import org.junit.Before
+import org.junit.Test
+import org.junit.runner.RunWith
+
+import static net.grinder.script.Grinder.grinder
+import static org.hamcrest.Matchers.is
+import static org.junit.Assert.assertThat
+
+/**
+ * ngrinder get, post 요청 샘플 스크립트.
+ */
+@RunWith(GrinderRunner)
+class MultipartTestRunner {
+
+    public static GTest test
+    public static HTTPRequest request
+    public static NVPair[] headers = []
+
+    static String url = "http://타겟url"
+    static String commonPath = "/api"
+
+    static String moreUploadUrl = url + commonPath + "/upload-app-file"
+
+    @BeforeProcess
+    static void beforeProcess() {
+        HTTPPluginControl.getConnectionDefaults().timeout = 6000
+        test = new GTest(1, "http://타겟명")
+        request = new HTTPRequest()
+        grinder.logger.info("before process.");
+    }
+
+    @BeforeThread
+    void beforeThread() {
+        test.record(this, "test")
+        grinder.statistics.delayReports = true;
+        grinder.logger.info("before thread.");
+    }
+
+    @Before
+    void before() {
+        headers = [
+                new NVPair("Content-Type", "multipart/form-data")
+        ]
+        request.setHeaders(headers)
+    }
+
+    @Test
+    void moreUpload() {
+        NVPair param1 = new NVPair("appcode", "999");
+        NVPair param2 = new NVPair("appversion", "17");
+        NVPair param3 = new NVPair("hashcode", "11223344556677");
+
+        NVPair[] params = [param1, param2, param3]
+
+        NVPair[] files = [new NVPair("userfile", "src/main/resources/파일명.확장자")]
+
+        def data = Codecs.mpFormDataEncode(params, files, headers)
+        HTTPResponse result = request.POST(moreUploadUrl, data)
+
+        resultCheck(result)
+    }
+
+    /**
+     * 결과값 체크
+     * @param result
+     */
+    void resultCheck(result) {
+        println result
+        if (result.statusCode == 301 || result.statusCode == 302) {
+            grinder.logger.warn("Warning. The response may not be correct. The response code was {}.", result.statusCode);
+        } else {
+            assertThat(result.statusCode, is(200));
+        }
+    }
+}
+
+~~~
+
 
 참고자료:
  - https://brownbears.tistory.com/25
  - http://blog.naver.com/PostView.nhn?blogId=simpolor&logNo=221318391959&parentCategoryNo=&categoryNo=27&viewDate=&isShowPopularPosts=true&from=search
  - https://junoyoon.tistory.com/entry/%EC%9D%B4%ED%81%B4%EB%A6%BD%EC%8A%A4%EC%97%90-Groovy-%EB%A9%94%EC%9D%B4%EB%B8%90-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%9E%84%ED%8F%AC%ED%8A%B8
+ - https://gist.github.com/ihoneymon/a83b22a42795b349c389a883a7bbf356
 
 [jekyll-docs]: https://jekyllrb.com/docs/home
 [jekyll-gh]:   https://github.com/jekyll/jekyll
