@@ -229,6 +229,7 @@ class SampleGetPostRunner {
 ~~~
 
 - 일반 form post 요청일 경우
+
 ~~~
 import HTTPClient.HTTPResponse
 import HTTPClient.NVPair
@@ -309,7 +310,9 @@ class TestRunner {
 
 ~~~
 
+
 - 파일 업로드 post 요청 (multipart/form-data)
+
 
 ~~~
 import HTTPClient.Codecs
@@ -375,7 +378,7 @@ class MultipartTestRunner {
 
         NVPair[] params = [param1, param2, param3]
 
-        NVPair[] files = [new NVPair("userfile", "src/main/resources/파일명.확장자")]
+        NVPair[] files = [new NVPair("userfile", "경로/파일명.확장자")]
 
         def data = Codecs.mpFormDataEncode(params, files, headers)
         HTTPResponse result = request.POST(moreUploadUrl, data)
@@ -398,6 +401,7 @@ class MultipartTestRunner {
 }
 
 ~~~
+
 
 
 참고자료:
