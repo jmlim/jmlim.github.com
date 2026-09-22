@@ -8,6 +8,12 @@ tags: [Docker, Jenkins]
 ---
 
 ---
+> **📦 Docker 실전 가이드 시리즈 (전체 4편)**
+> 1. [Docker 기본 명령어 정리](/docker/2019/02/25/docker-command/)
+> 2. [Dockerfile로 Tomcat에 War 파일 배포하기](/docker/2019/02/19/dockerfile-tomcat-deploy/)
+> 3. **Docker로 Jenkins 설치하기 (현재 글)**
+> 4. [Docker로 MySQL 설치하기 (한글 인코딩 포함)](/docker/2019/07/30/docker-mysql-setup/)
+
 도커가 설치되어 있다고 가정한다.
 
 ## 1. Jenkins 이미지 내려 받기
