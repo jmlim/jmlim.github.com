@@ -9,6 +9,8 @@ tags: [Spring, Java]
 
 ---
 
+> **[2026년 추가]** 이 글은 사용법 위주였는데, `@Async`가 내부적으로 어떻게 동작하는지(Spring Proxy, Thread Pool, self-invocation, `@Transactional`과 같이 쓸 때 주의점 등) 궁금하다면 [Spring @Async는 실제로 어떻게 동작할까?](/spring/2026/09/22/spring-async-thread-pool-proxy/) 글에 이어서 정리해뒀다.
+
 언제 사용하면 좋을까?
 -- 
 1. 요청이 긴 경우
