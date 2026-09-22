@@ -10,6 +10,8 @@ tags: [Spring, Java]
 ---
 
 
+> **[2026년 추가]** 이 글에서 쓴 `com.amazonaws:aws-java-sdk`(AWS SDK for Java **v1**)는 2024년 7월 31일부로 유지보수 모드로 전환됐고, **2025년 12월 31일부로 공식 지원이 종료**됐다 (기존 앱이 당장 멈추진 않지만, 신규 기능/보안 패치를 더 받지 못한다). 새로 프로젝트를 시작한다면 `software.amazon.awssdk:s3`(SDK **v2**)를 쓰는 게 맞다. v2에서는 패키지가 `software.amazon.awssdk.*`로 바뀌고, `AmazonS3ClientBuilder` 대신 `S3Client.builder()...build()` 형태로 빌더 API 이름도 조금씩 달라졌다 — 흐름 자체(자격증명 → 리전 → 클라이언트 빌드)는 아래 예제와 동일하니 마이그레이션 가이드를 참고하면 어렵지 않다.
+
 amazon s3 인증 받기 및 설정 관련 내용은 생략하였다.
 
 프로젝트 구성을 위해 의존성을 추가. 

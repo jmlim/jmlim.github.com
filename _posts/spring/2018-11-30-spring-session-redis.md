@@ -70,6 +70,18 @@ public class RedisSessionConfig extends AbstractHttpSessionApplicationInitialize
 } 
 ```
 
+> **[2026년 추가]** 지금 기준으로 이 글을 그대로 따라 하면 두 군데서 막힌다.
+> 1. `spring-session` 아티팩트는 지금은 범용 코어일 뿐이고, Redis 연동에는 **`spring-session-data-redis`**(`groupId: org.springframework.session`)를 받아야 한다.
+> 2. **Spring Boot 3.0부터 Redis 설정 프리픽스가 `spring.redis.*` 에서 `spring.data.redis.*` 로 바뀌었다.** (공식 문서 확인) 그대로 `spring.redis.host`를 쓰면 무시되고 기본값(`localhost:6379`)으로 접속을 시도하게 된다.
+> ```yaml
+> spring:
+>   data:
+>     redis:
+>       host: 192.168.0.156
+>       port: 6379
+> ```
+> 참고로 최신 Spring Boot에서는 `spring-session-data-redis` 의존성만 추가하면 `@EnableRedisHttpSession` 없이도 자동 설정(auto-configuration)되는 경우가 많다 — 커스터마이징이 필요할 때만 명시적으로 `@EnableRedisHttpSession`을 쓰면 된다.
+
 레디스에서 세션 저장여부 확인.
 <img src="{{ site.baseurl }}/public/post/spring-session/spring-session-redis.png"/>
 

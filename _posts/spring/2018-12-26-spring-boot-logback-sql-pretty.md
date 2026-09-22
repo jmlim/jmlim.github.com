@@ -25,6 +25,8 @@ spring.jpa.properties.hibernate.format_sql=true
 
 
 
+> **[2026년 추가]** `log4jdbc-log4j2`는 오랫동안 업데이트가 뜸한 라이브러리라, 요즘 새로 설정한다면 **p6spy**(+ `p6spy-spring-boot-starter`) 또는 **datasource-proxy**를 더 많이 쓴다. 목적(SQL을 보기 좋게 로그로 남기기)은 동일하고 원리도 비슷(JDBC Driver/DataSource를 감싸는 프록시)하니, 아래 내용은 개념을 이해하는 용도로 보고 실제 적용은 둘 중 하나로 하는 걸 권장한다.
+
 ## 1. pom.xml 에 다음 라이브러리 추가.
 ```xml
 

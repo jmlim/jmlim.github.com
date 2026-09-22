@@ -12,6 +12,8 @@ tags: [Spring, JSP]
 기본적으로 spring-boot-starter-web 에 포함된 tomcat은 JSP를 포함하지 않는다.<br/>
 하지만 간단한 설정만으로도 JSP view를 사용 가능하다.<br>
 
+> **[2026년 추가]** 중요한 제약이 하나 있다 — **Spring Boot는 실행 가능한 JAR(executable jar)로 패키징할 경우 JSP를 지원하지 않는다.** IDE에서 돌리거나(exploded 상태) WAR로 패키징해서 외부 톰캣에 배포할 땐 이 글대로 잘 동작하지만, `./gradlew bootJar`나 `mvn package`로 JAR를 만들어 `java -jar`로 실행하면 JSP가 안 뜨거나 404가 난다. JAR로 배포해야 한다면 애초에 JSP 대신 **Thymeleaf**(`spring-boot-starter-thymeleaf`)를 쓰는 걸 권장한다 — Spring Boot 공식 문서에서도 JSP는 "practical only when using war" 라고 명시하고 있다. WAR 배포가 확정된 레거시 프로젝트가 아니라면, 요즘 새로 시작하는 프로젝트에서 JSP+Tiles 조합은 잘 안 쓴다.
+
 일단 dependency를 pom.xml 에 추가한다.
 
 #### pom.xml 에 아래 구문 추가.

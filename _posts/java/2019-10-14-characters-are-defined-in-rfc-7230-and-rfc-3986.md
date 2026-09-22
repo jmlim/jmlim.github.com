@@ -71,7 +71,9 @@ java.lang.IllegalArgumentException: Invalid character found in the request targe
 RFC 3986에는 영어 문자(a-zA-Z), 숫자(0-9), -. ~4 특수 문자 및 모든 예약 문자만 허용된다.
 
 위 에러는 특수문자 중 ([) 를 차단하면서 발생한 것인데,  
-수정하려면 아래 relaxQueryChars 옵션에 허용할 문자를 추가하거나 톰캣 버전을 다운그레이드 해야한다.
+수정하려면 아래 relaxedQueryChars 옵션에 허용할 문자를 추가하거나 톰캣 버전을 다운그레이드 해야한다.
+
+> **[2026년 추가]** `relaxedQueryChars`(경로에는 `relaxedPathChars`)는 Tomcat이 RFC 3986을 엄격하게 지키면서 막아주던 특수문자 검증을 **일부러 느슨하게 푸는 옵션**이다. 이 검증은 요청 스머글링(HTTP Request Smuggling) 같은 공격을 막기 위해 도입된 것이기 때문에, 여기 넣는 문자는 정말 필요한 것만 최소한으로 추가해야 한다. 위 예제처럼 `<>[\]^\`{|}` 를 한 번에 다 풀어버리는 것보다, 실제로 요청에서 걸리는 문자(이 글의 경우 `[`, `]`)만 골라서 추가하는 게 더 안전하다.
 
 아래는 스프링 부트에서 해당 옵션을 추가하는 예 이다.
 
