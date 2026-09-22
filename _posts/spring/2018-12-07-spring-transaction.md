@@ -10,6 +10,8 @@ tags: [Spring, Java, Transaction]
 ---
 
 
+> **[2026년 추가]** 이 글은 트랜잭션의 개념과 propagation 위주였는데, `@Transactional`이 내부적으로 어떻게 동작하는지(AOP Proxy, JDK Dynamic Proxy vs CGLIB, self-invocation 문제 등) 궁금하다면 [Spring Boot @Transactional은 어떻게 동작할까? AOP Proxy부터 CGLIB까지](/spring/2026/09/22/spring-transactional-aop-proxy-cglib/) 글에 이어서 정리해뒀다.
+
 먼저 트랜잭션이란? <br/>
 데이터베이스 연산들의 논리적 단위이며 트랜잭션 내 모든 연산들이 정상적으로 완료되지 않으면 아무 것도 수행되지 않은 원래 상태로 복원되어야 한다.
 
