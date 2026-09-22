@@ -59,7 +59,7 @@ git stash store [-m|--message <message>] [-q|--quiet] <commit>
 
 ### stash 생성
 ###  1. 프로젝트 오른쪽 클릭 후 git -> Repository -> Stash Changes 
- > 또는 Find Action (shift 2번 클릭 후 상단바 선택) 후 Stash Changes 입력
+ > 또는 Search Everywhere (Shift 두 번 연속 클릭) 후 Stash Changes 입력
 
  <img src="{{ site.baseurl }}/public/post/gitimg/git-stash1.png" width="800px" height="500px"/>
  
@@ -69,11 +69,13 @@ git stash store [-m|--message <message>] [-q|--quiet] <commit>
 
 ### stash 가져오기 
 ###  1. 프로젝트 오른쪽 클릭 후 git -> Repository -> UnStash Changes 
- > 또는 Find Action (shift 2번 클릭 후 상단바 선택) 후 Unstash Changes 입력
+ > 또는 Search Everywhere (Shift 두 번 연속 클릭) 후 Unstash Changes 입력
 
 <img src="{{ site.baseurl }}/public/post/gitimg/git-stash3.png" width="800px" height="500px"/>
 
 ### 2. 목록에서 가져올 stash 선택 후 Apply Stash 클
+
+> **[2026년 추가]** 원래 "Find Action"이라고 썼었는데, Shift 두 번은 정확히는 **Search Everywhere**(파일·클래스·설정·액션을 통합 검색)를 여는 단축키다. Find Action은 `Ctrl+Shift+A`(Mac: `Cmd+Shift+A`)로 별도 단축키가 있고 액션 검색에 특화되어 있다 — 둘 다 "Stash Changes" 액션을 찾아 실행할 수 있어서 결과적으로는 똑같이 쓸 수 있지만, 이름은 구분해두는 게 맞다.
 
 <img src="{{ site.baseurl }}/public/post/gitimg/git-stash4.png" width="800px" height="500px"/>
 

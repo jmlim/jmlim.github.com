@@ -86,6 +86,14 @@ function rgbToHex(rgb) {
 }
 ```
 
+> **[2026년 추가]** 위 코드는 그대로 실행하면 `hex is not defined` 에러가 난다 — 정작 0~255 값을 2자리 16진수 문자열로 바꿔주는 `hex()` 헬퍼 함수가 빠져 있었다. 아래 함수를 위에 같이 넣어야 실제로 동작한다.
+> ```javascript
+> function hex(x) {
+>     var h = parseInt(x, 10).toString(16);
+>     return h.length === 1 ? "0" + h : h; // 한 자리면 앞에 0을 채워 2자리로 맞춤 (ex: 5 -> "05")
+> }
+> ```
+
 실행결과 
 > rgbToHex("rgb(255,255,255)"); //실행. <br> #ffffff //리턴값.
 

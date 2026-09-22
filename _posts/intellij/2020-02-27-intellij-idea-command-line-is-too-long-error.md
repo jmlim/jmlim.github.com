@@ -34,6 +34,8 @@ Error running 'All in project-name': Command line is too long. Shorten command l
 </component>
 ~~~
 
+> **[2026년 추가]** 지금은 `workspace.xml`을 직접 안 건드려도 된다 — 각 Run/Debug Configuration 화면에 **"Shorten command line"** 드롭다운이 내장되어 있고, 여기서 `JAR manifest` / `classpath file` / (Java 9+) `@argfile` 방식 중 골라서 같은 문제를 해결할 수 있다. `Modify options`에서 이 항목을 보이게 켤 수 있다. 팀원들과 설정을 공유해야 한다면(이 글의 원래 목적처럼) 이 방식이 XML을 손으로 고치는 것보다 안전하다.
+
 출처 :
  - https://devis.cool/quick-fix/quickfix-intellij-idea-command-line-is-too-long-shorten-command-line-for/
 
