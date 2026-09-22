@@ -11,6 +11,8 @@ tags: [Spring, Java, HandlerMethodArgumentResolver, Argument]
 
 * HandlerMethodArgumentResolver 를 사용하여 컨트롤러 메소드에 선언된 특정 Arguments를 변경하거나 또는 권한체크를 하여 arguments에 값을 넣어주거나 할 수 있다.
 
+> **[2026년 추가]** 이 글에서 쓴 `WebMvcConfigurerAdapter`는 Spring 5(2017년)부터 deprecated 되었고, Spring 6부터는 아예 삭제되어 더 이상 컴파일도 안 된다. 자바 8부터 인터페이스에 기본 구현(default method)을 넣을 수 있게 되면서, 모든 메서드를 구현할 필요 없이 필요한 메서드만 오버라이드하도록 도와주던 이 어댑터 클래스 자체가 필요 없어졌기 때문이다. 지금은 `WebMvcConfigurer` 인터페이스를 바로 구현하면 된다 — 아래 2번 항목의 코드만 그렇게 바꾸면 이 글의 나머지 내용은 최신 Spring Boot에서도 그대로 유효하다.
+
 ## 0. 멤버 클래스
 ~~~java
 
@@ -70,8 +72,9 @@ public class MemberHandlerMethodArgumentResolver implements HandlerMethodArgumen
 
 
 ```java
+// (2026년 수정) WebMvcConfigurerAdapter 대신 WebMvcConfigurer 인터페이스를 직접 구현
 @Configuration
-public class WebConfig extends WebMvcConfigurerAdapter {
+public class WebConfig implements WebMvcConfigurer {
   
   @Override
   public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {

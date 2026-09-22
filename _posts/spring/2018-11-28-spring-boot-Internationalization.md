@@ -42,15 +42,17 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
+// (2026년 수정) WebMvcConfigurerAdapter는 Spring 5부터 deprecated, Spring 6에서 삭제됨.
+// 자바 8의 인터페이스 default method 덕분에 어댑터 클래스 없이 WebMvcConfigurer를 바로 구현하면 된다.
 @Configuration
-public class MessageSourceConfig extends WebMvcConfigurerAdapter {
+public class MessageSourceConfig implements WebMvcConfigurer {
 
      @Bean
     public LocaleResolver localeResolver() {

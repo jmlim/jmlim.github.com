@@ -9,6 +9,9 @@ tags: [Java, MD5, 암호화]
 
 ---
 
+> **[2026년 추가]** MD5는 체크섬(파일 중복 검사, 캐시 키 생성 등) 용도로는 지금도 쓸 수 있지만, **비밀번호 해싱이나 보안이 중요한 무결성 검증에는 쓰면 안 된다.** 이미 오래전에 충돌(collision) 공격이 실용화되어, 서로 다른 두 입력이 같은 MD5 해시값을 갖도록 의도적으로 만들어낼 수 있음이 증명되었다. 비밀번호를 저장해야 한다면 bcrypt, scrypt, Argon2처럼 느리게(계산 비용을 일부러 높여서) 설계된 해시 알고리즘을 써야 한다.
+> 참고로 원본 코드의 `main()` 메서드에는 클래스명 오타(`MD5` → `Md5Utils`)가 있어서 아래에서 고쳐뒀다.
+
 #### Md5Utils.java
 ```java
 
@@ -31,7 +34,7 @@ class Md5Utils {
    }
    public static void main( String[] args ) throws Exception {
        for ( String message: args ) {
-           System.out.println( new MD5( message ).hexdigest() );
+           System.out.println( new Md5Utils( message ).hexdigest() ); // 오타 수정: MD5 -> Md5Utils
        }
    }
 }
